@@ -64,6 +64,14 @@ tests/            Host tests
 linker.ld         STM32F429 memory layout
 ```
 
+
+ # The firmware’s text, data, and BSS sizes
+
+```
+text    data     bss     dec     hex filename
+6760       8  153772  160540   2731c build/gyro-breakout.elf
+```
+
 ## Troubleshooting
 
 - **Controls drift or behave unexpectedly:** reset the board and keep it still during gyroscope calibration. The control directions depend on how the board is held.

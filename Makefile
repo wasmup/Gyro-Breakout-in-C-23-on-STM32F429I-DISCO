@@ -1,5 +1,6 @@
 CROSS_COMPILE ?= arm-none-eabi-
 CC := $(CROSS_COMPILE)gcc
+SIZE := $(CROSS_COMPILE)size
 OPENOCD ?= openocd
 HOST_CC ?= cc
 BUILD_DIR := build
@@ -15,6 +16,7 @@ all:
 	$(MAKE) clean
 	$(MAKE) flash
 build: $(ELF)
+	$(SIZE) $(ELF)
 $(ELF): $(OBJECTS) linker.ld
 	$(CC) $(LDFLAGS) $(OBJECTS) -lgcc -o $@
 $(BUILD_DIR)/%.o: src/%.c
